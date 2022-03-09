@@ -23,8 +23,8 @@ highlight #4C8577
 
 
 Each PLACE will need the following
--Name       (String)
--City       (String)
--State      (String)
--Cuisines   (String)
--pic        (String)
+ - Name       (String)
+ - City       (String)
+ - State      (String)
+ - Cuisines   (String)
+ - pic        (String)
