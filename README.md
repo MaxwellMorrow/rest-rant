@@ -20,3 +20,11 @@ highlight #4C8577
 |Post    |/places:id/rant       |create a rant on place|
 |Delete  |/places:id/rant:rantId|delete a rant on place|
 |Get     | *                    | 404 page not found   |
+
+
+Each PLACE will need the following
+-Name       (String)
+-City       (String)
+-State      (String)
+-Cuisines   (String)
+-pic        (String)
