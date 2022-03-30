@@ -3,7 +3,21 @@ const Def = require("../default");
 
 function show(data) {
   let comments = <h3 className="inactive">No comments yet!</h3>;
+  let rating = (
+    <h3 className="inactive">
+      Not yet rated 
+    </h3>
+  )
   if (data.place.comments.length) {
+    let sumRatings = data.place.comments.reduce((tot,c) => {
+          return tot + c.stars 
+        },0)
+        let averageRating = Math.round(sumRatings / data.place.comments.length)
+        let stars = ""
+        for(let i = 0; i<averageRating; i++){
+          stars +="✨"
+        } 
+
     comments = data.place.comments.map((c) => {
       return (
         <div className="border">
@@ -12,7 +26,7 @@ function show(data) {
           <h3>
             <stong>- {c.author}</stong>
           </h3>
-          <h4>Rating: {c.stars}</h4>
+          <h4>Rating: {stars} stars</h4>
         </div>
       );
     });
@@ -69,10 +83,10 @@ function show(data) {
             value="Add Comment"
           />
         </form>
-        <a href={`/places/${data.id}/edit`} className="btn btn-warning">
+        <a href={`/places/${data.place.id}/edit`} className="btn btn-warning">
           Edit
         </a>
-        <form method="POST" action={`/places/${data.id}?_method=DELETE`}>
+        <form method="POST" action={`/places/${data.place.id}?_method=DELETE`}>
           <button type="submit" className="btn btn-danger">
             Delete
           </button>
