@@ -23,6 +23,6 @@ app.get("*", (req, res) => {
   res.render("error404");
 });
 
-app.listen(49115, () => {
+app.listen(process.env.PORT, () => {
   console.log("listening on port 3002");
 });
